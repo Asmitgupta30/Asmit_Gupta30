@@ -154,7 +154,6 @@ header.nav.scrolled {
   letter-spacing: .06em;
   pointer-events: none;
 }
-.hud-tl { top: 88px; left: 28px; }
 .hud-tr { top: 88px; right: 28px; text-align: right; }
 .hud b { color: var(--muted); font-weight: 500; }
 .hud .c1 { color: var(--sage); }
@@ -1010,7 +1009,6 @@ footer {
 
 @media(max-width: 640px) {
   .wrap { padding: 0 18px; }
-  .hud-tl { left: 18px; }
   .hud-tr { display: none; }
   .scalebar { display: none; }
   section.block { padding-top: 80px; }

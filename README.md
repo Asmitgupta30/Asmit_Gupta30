@@ -14,7 +14,7 @@ Designed with a warm basalt, chondrite ochre, and deep space obsidian aesthetic,
   - Dynamic star-planet magnetic interaction (Alfvén wings / flux tube) with streaming plasma packets and auroral footprints.
   - 60fps vanilla Canvas 2D simulation with smooth cursor parallax and automatic viewport observer pausing.
 - **Top-Left Name & Signature Tagline**:
-  - Left-aligned header with revived tagline: *“From Questionable Astrophysics to Quartzarenites?”*.
+  - Left-aligned header with revived tagline: *“From Questionable Astrophysics to Silicates?”*.
 - **Profile & Voice**:
   - Authentic student voice: Geology major studying stellar chemistry and rocky planetary mantles, cooking in room, basketball court, and unreviewed mirror rhythm practice.
 - **Research Experience (All appointments as Researcher)**:
