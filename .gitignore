@@ -1,0 +1,26 @@
+# Operating System files
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# Environment and secrets
+.env
+.env.*
+*.local
+*.pem
+*.key
+
+# Editor directories
+.vscode/
+.idea/
+*.sublime-project
+*.sublime-workspace
+
+# Node / Scratch / Temp
+node_modules/
+scratch/
+*.log
+*.tmp
+
+# Temporary report files
+codeflow-report.md

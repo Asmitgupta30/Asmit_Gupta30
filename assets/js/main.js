@@ -508,17 +508,18 @@
   const menuBtn = document.getElementById('menuBtn');
   const navLinks = document.getElementById('navLinks');
   if (menuBtn && navLinks) {
+    const menuIcon = menuBtn.querySelector('i');
     const closeMenu = () => {
       navLinks.classList.remove('open');
       menuBtn.setAttribute('aria-expanded', 'false');
-      menuBtn.innerHTML = '<i class="fas fa-bars"></i>';
+      if (menuIcon) menuIcon.className = 'fas fa-bars';
     };
 
     menuBtn.addEventListener('click', (e) => {
       e.stopPropagation();
       const open = navLinks.classList.toggle('open');
       menuBtn.setAttribute('aria-expanded', open ? 'true' : 'false');
-      menuBtn.innerHTML = open ? '<i class="fas fa-times"></i>' : '<i class="fas fa-bars"></i>';
+      if (menuIcon) menuIcon.className = open ? 'fas fa-times' : 'fas fa-bars';
     });
 
     navLinks.querySelectorAll('a').forEach((link) => {
@@ -579,11 +580,14 @@
   let quoteIndex = 0;
 
   if (statusPill) {
+    const statusText = statusPill.querySelector('.status-text');
     const cycleStatus = () => {
       quoteIndex = (quoteIndex + 1) % wittyQuotes.length;
       statusPill.style.transform = 'scale(0.97)';
       setTimeout(() => {
-        statusPill.innerHTML = `<span class="pulse"></span> <span class="status-text">${wittyQuotes[quoteIndex]}</span>`;
+        if (statusText) {
+          statusText.textContent = wittyQuotes[quoteIndex];
+        }
         statusPill.style.transform = '';
       }, 150);
     };
