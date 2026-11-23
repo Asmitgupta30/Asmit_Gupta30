@@ -571,7 +571,7 @@
   const wittyQuotes = [
     'Final Year BS–MS · Asking whether a star\'s chemistry tells you what a planet is made of',
     'Currently writing MS thesis at NISER and waiting for thermodynamic models to converge',
-    'Conducting fieldwork on rhythm in front of the mirror (safe from peer review)',
+    'Moving in front of the mirror (ofc not for formal purposes)',
     'Power Forward on court, Taekwondo instructor in dojo, room chef at night',
     '2.5m telescope photometrist: 5% science, 95% praying it doesn\'t cloud over',
     'Fest tandoor chef: 400°C charcoal heat tolerance and real-time thermodynamics',
