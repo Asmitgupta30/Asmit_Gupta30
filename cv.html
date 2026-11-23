@@ -1,0 +1,560 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Curriculum Vitae — Asmit Gupta | IISER Kolkata & NISER</title>
+  <link rel="icon" type="image/jpeg" href="assets/images/profile/asmit-gupta.jpg">
+  <link rel="stylesheet" href="assets/css/style.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  
+  <style>
+    :root {
+      --cyan: var(--amber);
+      --font-mono: var(--mono);
+      --text-muted: var(--muted);
+      --text-dim: var(--dim);
+      --surface-card: var(--surface-2);
+      --radius-lg: 16px;
+      --radius-md: 10px;
+    }
+    
+    .cv-page-wrap {
+      max-width: 920px;
+      margin: 3rem auto;
+      background: var(--surface);
+      border: 1px solid var(--line);
+      border-radius: var(--radius-lg);
+      padding: 3.5rem;
+      box-shadow: 0 15px 50px rgba(0, 0, 0, 0.5);
+    }
+    
+    .cv-header-actions {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      margin-bottom: 2.2rem;
+      padding-bottom: 1.5rem;
+      border-bottom: 1px solid var(--line);
+      flex-wrap: wrap;
+      gap: 1.5rem;
+    }
+    
+    .cv-title-block h1 {
+      font-size: 2.6rem;
+      font-weight: 700;
+      letter-spacing: -0.03em;
+    }
+    
+    .cv-title-block .subtitle {
+      font-family: var(--font-mono);
+      color: var(--amber);
+      font-size: 0.95rem;
+      margin-top: 0.3rem;
+    }
+    
+    .cv-contact-strip {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1.4rem;
+      margin-top: 0.9rem;
+      font-family: var(--font-mono);
+      font-size: 0.82rem;
+      color: var(--text-muted);
+    }
+    
+    .cv-contact-strip a:hover {
+      color: var(--amber);
+    }
+    
+    .cv-section {
+      margin-top: 2.5rem;
+      padding: 0;
+      border: none;
+    }
+    
+    .cv-section-title {
+      font-size: 1.15rem;
+      font-family: var(--font-mono);
+      font-weight: 700;
+      color: var(--text);
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      border-bottom: 2px solid var(--line);
+      padding-bottom: 0.4rem;
+      margin-bottom: 1.3rem;
+      display: flex;
+      align-items: center;
+      gap: 0.6rem;
+    }
+
+    .cv-section-title i {
+      color: var(--amber);
+      font-size: 0.95rem;
+    }
+    
+    .cv-entry {
+      margin-bottom: 1.6rem;
+    }
+    
+    .cv-entry-head {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      margin-bottom: 0.2rem;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+    }
+    
+    .cv-entry-title {
+      font-size: 1.08rem;
+      font-weight: 600;
+      color: var(--text);
+    }
+    
+    .cv-entry-time {
+      font-family: var(--font-mono);
+      font-size: 0.8rem;
+      color: var(--amber);
+    }
+    
+    .cv-entry-sub {
+      font-size: 0.9rem;
+      color: var(--sage);
+      font-family: var(--font-mono);
+      margin-bottom: 0.4rem;
+    }
+    
+    .cv-entry-desc {
+      font-size: 0.92rem;
+      color: var(--text-muted);
+      line-height: 1.65;
+    }
+    
+    .cv-list {
+      list-style-type: square;
+      padding-left: 1.25rem;
+      font-size: 0.92rem;
+      color: var(--text-muted);
+      display: flex;
+      flex-direction: column;
+      gap: 0.45rem;
+      line-height: 1.6;
+    }
+
+    .cv-list strong {
+      color: var(--text);
+    }
+
+    .pub-box {
+      background: var(--surface-card);
+      border-left: 3px solid var(--sage);
+      padding: 1.2rem 1.4rem;
+      border-radius: 0 var(--radius-md) var(--radius-md) 0;
+      margin-bottom: 1rem;
+    }
+    .pub-box.submitted {
+      border-left-color: var(--amber);
+    }
+    .pub-box.prep {
+      border-left-color: var(--dim);
+    }
+
+    .pub-title {
+      font-weight: 700;
+      font-size: 1.05rem;
+      color: var(--text);
+      line-height: 1.4;
+      margin-bottom: 0.4rem;
+    }
+
+    .pub-authors {
+      font-family: var(--font-mono);
+      font-size: 0.84rem;
+      color: var(--text-muted);
+      margin-bottom: 0.4rem;
+    }
+
+    .pub-journal {
+      font-size: 0.88rem;
+      color: var(--amber);
+      font-weight: 600;
+      display: flex;
+      align-items: center;
+      gap: 0.8rem;
+      flex-wrap: wrap;
+    }
+
+    .cv-skills-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 1.2rem;
+    }
+
+    .cv-skill-cell {
+      background: var(--surface-card);
+      border: 1px solid var(--line);
+      padding: 1.2rem;
+      border-radius: var(--radius-md);
+    }
+
+    .cv-skill-cell h4 {
+      font-family: var(--font-mono);
+      font-size: 0.88rem;
+      color: var(--amber);
+      margin-bottom: 0.6rem;
+    }
+
+    @media print {
+      body {
+        background: #ffffff !important;
+        color: #000000 !important;
+      }
+      .telemetry-bar, .site-header, .cv-header-actions .btn-group, .site-footer {
+        display: none !important;
+      }
+      .cv-page-wrap {
+        border: none !important;
+        box-shadow: none !important;
+        padding: 0 !important;
+        margin: 0 !important;
+        max-width: 100% !important;
+      }
+      .cv-entry-desc, .cv-contact-strip, .cv-list, .cv-skill-cell {
+        color: #222222 !important;
+        background: #ffffff !important;
+      }
+      .cv-section-title {
+        border-color: #222222 !important;
+        color: #000000 !important;
+      }
+      .pub-box {
+        border-left: 3px solid #000000 !important;
+        background: #f8fafc !important;
+      }
+      .cv-entry-time, .pub-journal {
+        color: #444444 !important;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Top Telemetry HUD -->
+  <aside class="telemetry-bar" style="display:flex; justify-content:space-between; padding:12px 28px; font-family:var(--mono); font-size:0.72rem; border-bottom:1px solid var(--line); background:var(--bg-2);">
+    <div class="telemetry-left">
+      <a href="index.html" style="color: var(--amber); font-weight: 600;">← Return to Main Archive</a>
+    </div>
+    <div class="telemetry-right" style="color:var(--muted); display:flex; gap:16px;">
+      <span>DOC: ASMIT_GUPTA_CV_2026.PDF</span>
+      <a href="cv.pdf" target="_blank" style="color:var(--text); text-decoration:underline;"><i class="fas fa-file-pdf"></i> Download Official PDF</a>
+      <span style="color: var(--dim);">LAST UPDATED: NOVEMBER 2026</span>
+    </div>
+  </aside>
+
+  <main class="container">
+    <article class="cv-page-wrap">
+      
+      <!-- Top Actions Bar -->
+      <div class="cv-header-actions">
+        <div class="cv-title-block">
+          <h1>Asmit Gupta</h1>
+          <div class="subtitle">Final-Year BS-MS · IISER Kolkata · MS Thesis at NISER</div>
+          <div class="cv-contact-strip">
+            <span><i class="fa-solid fa-location-dot"></i> IISER Kolkata &amp; NISER, India</span>
+            <a href="mailto:asmitgupta30@gmail.com"><i class="fa-regular fa-envelope"></i> asmitgupta30@gmail.com</a>
+            <a href="https://github.com/Asmitgupta30" target="_blank"><i class="fa-brands fa-github"></i> github.com/Asmitgupta30</a>
+            <a href="https://linkedin.com/in/asmit-gupta-45851a271" target="_blank"><i class="fa-brands fa-linkedin"></i> LinkedIn</a>
+          </div>
+        </div>
+        <div class="btn-group" style="display: flex; gap: 0.75rem;">
+          <a href="cv.pdf" target="_blank" class="btn-primary" style="padding: 0.6rem 1.2rem; font-size: 0.85rem; border:1px solid var(--line); border-radius:999px; background:var(--amber); color:#000; font-weight:600; text-decoration:none; display:inline-flex; align-items:center; gap:6px;">
+            <i class="fa-solid fa-file-pdf"></i> Download Official PDF
+          </a>
+          <button onclick="window.print()" class="btn-primary" style="padding: 0.6rem 1.2rem; font-size: 0.85rem; border:1px solid var(--line); border-radius:999px; background:var(--surface-2); color:var(--text); cursor:pointer;">
+            <i class="fa-solid fa-print"></i> Print
+          </button>
+          <a href="index.html" class="btn-secondary" style="padding: 0.6rem 1.2rem; font-size: 0.85rem; border:1px solid var(--line); border-radius:999px; text-decoration:none; color:var(--text);">
+            Home
+          </a>
+        </div>
+      </div>
+
+      <!-- Education Section -->
+      <section class="cv-section" style="margin-top: 0;">
+        <h2 class="cv-section-title"><i class="fa-solid fa-graduation-cap"></i> Education</h2>
+        
+        <div class="cv-entry">
+          <div class="cv-entry-head">
+            <span class="cv-entry-title">National Institute of Science Education and Research (NISER)</span>
+            <span class="cv-entry-time">Jun 2026 — Present</span>
+          </div>
+          <div class="cv-entry-sub">MS Thesis · School of Earth &amp; Planetary Sciences, Department of Atomic Energy, India</div>
+        </div>
+
+        <div class="cv-entry">
+          <div class="cv-entry-head">
+            <span class="cv-entry-title">Indian Institute of Science Education and Research (IISER), Kolkata</span>
+            <span class="cv-entry-time">Oct 2022 — Present</span>
+          </div>
+          <div class="cv-entry-sub">BS-MS Dual Degree · Major: Geological Sciences | Minor: Physical Sciences</div>
+        </div>
+
+        <div style="margin-top: 0.8rem; font-size: 0.92rem; color: var(--text-muted); line-height: 1.6;">
+          <strong>Research Interests:</strong> Rocky planet accretion &amp; differentiation. Protoplanetary disk chemistry. Planetary interiors, mantle mineralogy &amp; surface processes. Star-planet interactions. Observational astronomy &amp; photometric analysis. Machine learning and retrieval methods.
+        </div>
+      </section>
+
+      <!-- Publications Section (Full List from Updated CV) -->
+      <section class="cv-section">
+        <h2 class="cv-section-title"><i class="fa-solid fa-book-journal-whills"></i> Publications &amp; Manuscripts</h2>
+        
+        <!-- Paper 1: Accepted ApJ -->
+        <div class="pub-box">
+          <div class="pub-title">
+            (1) Stellar Abundances as Probes of Rocky Exoplanet Interiors: The Mantle Composition and Mineralogy of GJ 486b
+          </div>
+          <div class="pub-authors">
+            Harshit Krishna*, <strong>Asmit Gupta*</strong>, Sneha Bhowmik, Chandan K. Sahu, Sudipta Mridha, and Liton Majumdar (*joint first authors)
+          </div>
+          <div class="pub-journal">
+            <span>Accepted in <em>The Astrophysical Journal (ApJ)</em>, 2026</span>
+            <a href="https://doi.org/10.3847/1538-4357/ae9ba8" target="_blank" style="color: var(--amber); text-decoration: underline;">
+              doi: 10.3847/1538-4357/ae9ba8 ↗
+            </a>
+          </div>
+        </div>
+
+        <!-- Paper 2: Submitted to ApJ -->
+        <div class="pub-box submitted">
+          <div class="pub-title">
+            (2) The Chemical Imprint of Accretion on Rocky-Planet Interiors: Explaining the Earth–Mars Dichotomy and Its Implications for Rocky Exoplanets
+          </div>
+          <div class="pub-authors">
+            <strong>Asmit Gupta</strong>, Liton Majumdar, Chandan K. Sahu, Sudipta Mridha, and Sneha Bhowmik
+          </div>
+          <div class="pub-journal">
+            <span style="color: var(--amber);">Manuscript submitted to <em>The Astrophysical Journal (ApJ)</em></span>
+          </div>
+        </div>
+
+        <!-- Paper 3: In Prep -->
+        <div class="pub-box prep">
+          <div class="pub-title">
+            (3) A Self-Consistent Machine-Learning Framework for Inferring Mantle Composition and Mineralogy of Rocky Exoplanets
+          </div>
+          <div class="pub-authors">
+            <strong>Asmit Gupta</strong> and Liton Majumdar
+          </div>
+          <div class="pub-journal">
+            <span style="color: var(--text-muted);">Manuscript under preparation</span>
+          </div>
+        </div>
+
+        <!-- Paper 4: Submitted to ApJ -->
+        <div class="pub-box submitted">
+          <div class="pub-title">
+            (4) Impacts of the Interior-Outgassing Link on the Formation of the Secondary Atmosphere, Incorporated with Interior Evolution
+          </div>
+          <div class="pub-authors">
+            Sudipta Mridha, Liton Majumdar, Chandan K. Sahu, <strong>Asmit Gupta</strong>, and Sneha Bhowmik
+          </div>
+          <div class="pub-journal">
+            <span style="color: var(--amber);">Manuscript submitted to <em>The Astrophysical Journal (ApJ)</em></span>
+          </div>
+        </div>
+      </section>
+
+      <!-- Research Experience (All as Researcher) -->
+      <section class="cv-section">
+        <h2 class="cv-section-title"><i class="fa-solid fa-atom"></i> Research Experience</h2>
+        
+        <!-- NISER -->
+        <div class="cv-entry">
+          <div class="cv-entry-head">
+            <span class="cv-entry-title">National Institute of Science Education and Research (NISER)</span>
+            <span class="cv-entry-time">July 2025 — Present</span>
+          </div>
+          <div class="cv-entry-sub">Researcher · Exoplanets and Planetary Formation Group</div>
+          <ul class="cv-list">
+            <li>Planet formation and accretion dynamics in protoplanetary disk.</li>
+            <li>Modeling planetary and exoplanetary interiors and mantle profiles using stellar-abundance-informed devolatilization and thermodynamic equilibrium modeling.</li>
+            <li>Developed multi-variable and machine-learning models.</li>
+          </ul>
+        </div>
+
+        <!-- PRL Mt. Abu -->
+        <div class="cv-entry">
+          <div class="cv-entry-head">
+            <span class="cv-entry-title">Physical Research Laboratory (PRL), Mt. Abu Observatory</span>
+            <span class="cv-entry-time">May 2025 — Nov 2025</span>
+          </div>
+          <div class="cv-entry-sub">Researcher · Observational Astronomy Group</div>
+          <ul class="cv-list">
+            <li>Multiwavelength study of blazar variability using observational optical data from the 2.5 m telescope at the site.</li>
+            <li>Developed an automated pipeline for astronomical image processing and photometry.</li>
+          </ul>
+        </div>
+
+        <!-- IISc Bangalore -->
+        <div class="cv-entry">
+          <div class="cv-entry-head">
+            <span class="cv-entry-title">Indian Institute of Science (IISc), C.H.E.P.</span>
+            <span class="cv-entry-time">June 2024 — July 2024</span>
+          </div>
+          <div class="cv-entry-sub">Researcher · Centre for High Energy Physics</div>
+          <ul class="cv-list">
+            <li>D-muon spectrum using ROOT: Analyzing local energy maximums as a function of number densities of high-energy muons and other subatomic particles.</li>
+          </ul>
+        </div>
+
+        <!-- TIFR Mumbai -->
+        <div class="cv-entry">
+          <div class="cv-entry-head">
+            <span class="cv-entry-title">Tata Institute of Fundamental Research (TIFR)</span>
+            <span class="cv-entry-time">May 2024 — Aug 2024</span>
+          </div>
+          <div class="cv-entry-sub">Researcher · Extragalactic Astrophysics</div>
+          <ul class="cv-list">
+            <li>Statistical analysis of SDSS-IV eBOSS data: galaxy clustering, two-point correlation functions (2pcf) in large-scale structure evolution.</li>
+            <li>Modeled dark matter halo mass functions and the relationship between supermassive black holes (SMBHs) and their host dark matter halos.</li>
+          </ul>
+        </div>
+      </section>
+
+      <!-- Projects (GitHub) -->
+      <section class="cv-section">
+        <h2 class="cv-section-title"><i class="fa-solid fa-code-branch"></i> Projects (GitHub)</h2>
+        <ul class="cv-list">
+          <li><strong>Project ALFEVEN:</strong> ML-based solar wind speed predictor (ongoing).</li>
+          <li><strong>ExoHab v1.1 &amp; ExoTide:</strong> Python suite for exoplanetary demographics and habitability analysis: habitable-zone and transit analysis code.</li>
+          <li><strong>Automated FITS Pipeline:</strong> Automated pipeline for FITS image noise reduction for a faint-object-camera (FOC) and perform photometry.</li>
+          <li><strong>Extreme Gradient Random Forest:</strong> ML model for predicting stellar parameters of faint M-dwarfs.</li>
+          <li><strong>Geothermobarometry Suite:</strong> Metamorphic and igneous petrology visualizers for geothermobarometry, adopted for coursework.</li>
+        </ul>
+      </section>
+
+      <!-- Skills Section -->
+      <section class="cv-section">
+        <h2 class="cv-section-title"><i class="fa-solid fa-screwdriver-wrench"></i> Skills</h2>
+        
+        <div class="cv-skills-grid">
+          <div class="cv-skill-cell">
+            <h4>Geoscience Tools</h4>
+            <p style="font-size: 0.88rem; color: var(--text-muted); line-height: 1.6;">
+              ArcGIS, QGIS, ObsPy (Ocean Bottom Seismometer), SAC (Seismic Analysis Code).
+            </p>
+          </div>
+
+          <div class="cv-skill-cell">
+            <h4>Planetary &amp; Thermodynamic Modeling</h4>
+            <p style="font-size: 0.88rem; color: var(--text-muted); line-height: 1.6;">
+              High-pressure thermodynamic phase equilibria, devolatilization pipelines, multi-phase analysis, and sensitivity tests.
+            </p>
+          </div>
+
+          <div class="cv-skill-cell">
+            <h4>Observational Astronomy &amp; Data</h4>
+            <p style="font-size: 0.88rem; color: var(--text-muted); line-height: 1.6;">
+              AstroImageJ, photutils, Astropy (incl. cKDTree spatial algorithms); SDSS, 2MASS, Gaia, SIMBAD, VizieR.
+            </p>
+          </div>
+
+          <div class="cv-skill-cell">
+            <h4>Machine Learning &amp; Programming</h4>
+            <p style="font-size: 0.88rem; color: var(--text-muted); line-height: 1.6;">
+              <strong>ML:</strong> scikit-learn (Random Forest, XGBoost), PyTorch, DNN frameworks.<br>
+              <strong>Languages:</strong> Python (primary), ROOT/C++, CAMB, CLASS.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <!-- Conferences & Talks -->
+      <section class="cv-section">
+        <h2 class="cv-section-title"><i class="fa-solid fa-microphone"></i> Poster &amp; Conferences / Talks</h2>
+        
+        <div style="margin-bottom: 1rem;">
+          <h4 style="font-family:var(--font-mono); color:var(--text); font-size:0.95rem; margin-bottom:0.5rem;">Poster Presentation</h4>
+          <ul class="cv-list">
+            <li><strong>From Stellar Chemistry to Planetary Interiors: A Machine-Learning Framework for Rocky Exoplanets in the JWST Era:</strong> Presented at International Centre for Theoretical Sciences (ICTS), Bengaluru (2026).</li>
+          </ul>
+        </div>
+
+        <div>
+          <h4 style="font-family:var(--font-mono); color:var(--text); font-size:0.95rem; margin-bottom:0.5rem;">Conferences &amp; Talks</h4>
+          <ul class="cv-list">
+            <li><strong>PLUTO/OpenGadget3 Symposium 2026:</strong> Max Planck Institute for Astronomy (MPIA), Heidelberg (June 2026).</li>
+            <li><strong>Exploring Exoplanets: The Journey to Discover New Frontiers and Habitable Worlds:</strong> ICTS, Bengaluru (March 2026).</li>
+            <li><strong>“Planet formation in a proto-planetary disk and observable signatures of star-planet interactions”:</strong> Talk delivered on behalf of the Earth Club, IISER Kolkata (2026).</li>
+            <li><strong>“Exploring Interiors of Exoplanets”:</strong> Talk delivered on behalf of the Earth Club, IISER Kolkata (2025).</li>
+            <li><strong>“Telescope Operations and Image Processing”:</strong> Talk on observational astronomy and data analysis workflows on behalf of Singularity: Astronomy Club, IISER Kolkata (2025).</li>
+            <li><strong>Properties of the Lithosphere:</strong> links between lithospheric properties, tectonics, metamorphism, and surface processes – Lecture by Prof. Dr. James Jackson, University of Cambridge.</li>
+            <li><strong>Einstein’s Ears: The Astronomy of Gravitational Waves:</strong> Lecture by Prof. Scott A. Hughes (MIT) at IISER Kolkata.</li>
+            <li><strong>Gravitational Wave Open Data Workshop (GWOSC).</strong></li>
+          </ul>
+        </div>
+      </section>
+
+      <!-- Teachings -->
+      <section class="cv-section">
+        <h2 class="cv-section-title"><i class="fa-solid fa-chalkboard-user"></i> Teaching &amp; Mentorship</h2>
+        <div class="cv-entry">
+          <div class="cv-entry-head">
+            <span class="cv-entry-title">Top-Rated Mentor — Sciastra</span>
+            <span class="cv-entry-time">July 2025 — Ongoing</span>
+          </div>
+          <div class="cv-entry-desc">
+            Guiding students preparing for top competitive science entrance exams in India (JEE, NEET, IAT and NEST) for over a year in physics, chemistry and mathematics.
+          </div>
+        </div>
+
+        <div class="cv-entry">
+          <div class="cv-entry-head">
+            <span class="cv-entry-title">Science Mentor — College - NGO (Ek-Pehel)</span>
+            <span class="cv-entry-time">June 2023 — July 2024</span>
+          </div>
+          <div class="cv-entry-desc">
+            Taught Science more interactively and practically to underprivileged students preparing for competitive science entrance exams in India.
+          </div>
+        </div>
+      </section>
+
+      <!-- Honours & Competitions -->
+      <section class="cv-section">
+        <h2 class="cv-section-title"><i class="fa-solid fa-award"></i> Honours &amp; Competitions</h2>
+        <ul class="cv-list">
+          <li><strong>International Astronomy and Astrophysics Competition (IAAC):</strong>
+            <br>• Global 94th percentile (2023) — <strong>Gold Honour</strong>
+            <br>• Global 92nd percentile (2022) — <strong>Silver Honour</strong>
+          </li>
+          <li><strong>Joint Entrance Examination (JEE Mains &amp; Advanced):</strong> Qualified (2022).</li>
+          <li><strong>IISER Aptitude Test (IAT):</strong> Qualified (2022).</li>
+          <li><strong>Stanford Science Proficiency Exam:</strong> Grade A (2020).</li>
+        </ul>
+      </section>
+
+      <!-- Extra-Curricular -->
+      <section class="cv-section">
+        <h2 class="cv-section-title"><i class="fa-solid fa-person-running"></i> Extra-Curricular</h2>
+        <ul class="cv-list">
+          <li><strong>Basketball Club, IISER Kolkata:</strong> Office Bearer (2023–2024); playing as <strong>Power Forward and Shooting Guard for the college team (2022 – present)</strong>.</li>
+          <li><strong>Taekwondo Instructor:</strong> Self-Defense Club, IISER Kolkata (2023–present); competed at district and senior levels.</li>
+          <li><strong>Cricket:</strong> Represented at the district level.</li>
+          <li><strong>Music:</strong> Bassist, college rock band.</li>
+          <li><strong>Dance:</strong> Danced at multiple national-level competitions.</li>
+        </ul>
+      </section>
+
+    </article>
+  </main>
+
+  <footer class="site-footer" style="margin-top: 4rem; text-align:center; padding:2rem; font-family:var(--mono); font-size:0.75rem; color:var(--dim); border-top:1px solid var(--line);">
+    <div class="container footer-content">
+      <span>Asmit Gupta — IISER Kolkata &amp; NISER (Last updated: November 2026)</span> ·
+      <a href="index.html" style="color:var(--amber);">← Back to Main Website</a>
+    </div>
+  </footer>
+
+</body>
+</html>

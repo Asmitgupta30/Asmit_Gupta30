@@ -1,0 +1,597 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Asmit Gupta — Planetary Mantles &amp; Observational Astrophysics</title>
+  <meta name="description" content="Personal academic archive of Asmit Gupta. Final year BS-MS student at IISER Kolkata, writing MS thesis at NISER on stellar chemistry and rocky exoplanetary mantles.">
+  <meta name="theme-color" content="#090a0d">
+  <link rel="icon" type="image/jpeg" href="assets/images/profile/asmit-gupta.jpg">
+
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+  <!-- Google Fonts: Space Grotesk, JetBrains Mono, Instrument Serif -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=JetBrains+Mono:wght@300;400;500;600&family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet">
+
+  <!-- Core Stylesheet -->
+  <link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body>
+
+  <!-- ========================================================================
+       Top Navigation
+       ======================================================================== -->
+  <header class="nav" id="nav">
+    <div class="wrap nav-inner">
+      <a href="#top" class="brand" aria-label="Asmit Gupta Homepage">
+        <span class="brand-dot"></span>asmit.gupta
+      </a>
+
+      <button class="menu-btn" id="menuBtn" aria-label="Toggle navigation menu" aria-expanded="false">
+        <i class="fas fa-bars"></i>
+      </button>
+
+      <ul class="nav-links" id="navLinks">
+        <li><a href="#about">01 / Profile</a></li>
+        <li><a href="#research">02 / Research</a></li>
+        <li><a href="#publications">03 / Writing</a></li>
+        <li><a href="#tools">04 / Pipelines</a></li>
+        <li><a href="#life">05 / Rhythm &amp; Life</a></li>
+        <li><a href="#contact">06 / Contact</a></li>
+      </ul>
+
+      <a href="cv.pdf" target="_blank" class="nav-cv" aria-label="Download Official Curriculum Vitae PDF">
+        <i class="fas fa-file-pdf"></i> CV.pdf
+      </a>
+    </div>
+  </header>
+
+  <!-- ========================================================================
+       Hero Section with Interactive Keplerian Disk & Star-Planet Interaction
+       ======================================================================== -->
+  <section class="hero" id="top">
+    <!-- Interactive Canvas: Protoplanetary Shear, Keplerian Orbits & Alfvén Wings -->
+    <canvas id="field" aria-hidden="true"></canvas>
+
+    <!-- Scientific Telemetry HUDs -->
+    <div class="hud hud-tl" aria-hidden="true">
+      <b>TARGET</b> Stellar Abundances &amp; Rocky Mantles<br>
+      <span class="c1">CH1</span> Mantle Mineralogy Simulations<br>
+      <span class="c2">CH2</span> Optical Photometry (2.5m Mt. Abu)
+    </div>
+
+    <div class="hud hud-tr" aria-hidden="true">
+      <b>T</b> <span id="clock">00:00.0</span> s<br>
+      <b>ORBIT</b> Keplerian (e = 0.08) · <b>P</b> 1.467 d<br>
+      <b>SIM</b> Protoplanetary Shear &amp; Star-Planet Interaction
+    </div>
+
+    <div class="scalebar" aria-hidden="true">
+      <i></i>0.017 AU
+    </div>
+
+    <!-- Hero Content: Name Strictly on Top-Left -->
+    <div class="wrap hero-content">
+      <!-- Interactive Status Pill -->
+      <div class="status rv" id="statusPill" title="Click to cycle status">
+        <span class="pulse"></span>
+        <span class="status-text">Final Year BS–MS · IISER Kolkata · MS Thesis at NISER</span>
+      </div>
+
+      <!-- Top-Left Name with Authentic Tagline -->
+      <h1 class="rv">
+        Asmit Gupta
+        <em>From Questionable Astrophysics to Quartzarenites?</em>
+      </h1>
+
+      <div class="hero-sub rv">
+        <p>
+          Geology major and physics minor studying how <span class="a">stellar chemistry</span> dictates
+          the <span class="g">mantle composition</span> of rocky planets, tracking blazar variability at optical telescopes,
+          and conducting unreviewed fieldwork on rhythm.
+        </p>
+        <div class="hero-actions">
+          <a href="#about" class="btn primary">Read Profile <i class="fas fa-arrow-down"></i></a>
+          <a href="cv.pdf" target="_blank" class="btn"><i class="fas fa-file-pdf"></i> Official CV.pdf</a>
+          <a href="cv.html" target="_blank" class="btn"><i class="fas fa-file-lines"></i> Interactive CV</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========================================================================
+       Main Content (Bespoke Editorial Architecture)
+       ======================================================================== -->
+  <main>
+
+    <!-- 01 / PROFILE & VOICE -->
+    <section class="block" id="about">
+      <div class="wrap">
+        <div class="sec-header rv">
+          <div class="sec-meta">
+            <span class="sec-num">01</span>
+            <span class="sec-label">Profile &amp; Voice</span>
+          </div>
+          <h2 class="sec-headline">Geology, stars, and <em>unreviewed footwork.</em></h2>
+        </div>
+
+        <div class="profile-editorial">
+          <!-- Lead Intro Block (Exact User Voice) -->
+          <div class="editorial-quote rv">
+            <p class="quote-lead">
+              I'm <span class="highlight-name">Asmit Gupta</span>, a geology major who got curious about what stars have to say about rocks.
+            </p>
+            <p class="quote-body">
+              I'm in my final year of the BS-MS at IISER Kolkata and currently writing my MS thesis at NISER, which is a polite way of saying I spend most of my days asking whether a star's chemistry can tell you what a planet is made of.
+            </p>
+            <p class="quote-body">
+              On the other end of the day, you'll mostly find me cooking in my room or on the basketball court. Occasionally you may also catch me dancing in front of a mirror, which I consider fieldwork on rhythm: it's the one place where nobody can peer-review my footwork.
+            </p>
+
+            <div class="pursuits-pills">
+              <span class="pill-tag"><i class="fas fa-volcano"></i> Exoplanetary Mantles</span>
+              <span class="pill-tag"><i class="fas fa-telescope"></i> Blazar Photometry</span>
+              <span class="pill-tag"><i class="fas fa-basketball"></i> Power Forward</span>
+              <span class="pill-tag"><i class="fas fa-utensils"></i> Room Cooking</span>
+              <span class="pill-tag"><i class="fas fa-shoe-prints"></i> Rhythm Fieldwork</span>
+            </div>
+          </div>
+
+          <!-- Aside: Portrait & Quick Parameters -->
+          <div class="editorial-aside rv">
+            <figure class="portrait-card">
+              <img src="assets/images/profile/asmit-gupta.jpg" alt="Portrait of Asmit Gupta" loading="lazy">
+              <div class="portrait-meta">
+                <div class="p-title">Asmit Gupta</div>
+                <div class="p-sub">IISER Kolkata · MS Thesis NISER</div>
+                <div class="p-location"><i class="fas fa-location-dot"></i> Mohanpur → Bhubaneswar</div>
+              </div>
+            </figure>
+
+            <div class="quick-facts-box">
+              <div class="q-fact">
+                <span class="q-label">Current Phase</span>
+                <span class="q-val">5th Year BS–MS (Final Year)</span>
+              </div>
+              <div class="q-fact">
+                <span class="q-label">Major / Minor</span>
+                <span class="q-val">Geological Sciences / Physics</span>
+              </div>
+              <div class="q-fact">
+                <span class="q-label">Fieldwork Status</span>
+                <span class="q-val">Rhythm Practice (Safe from Review)</span>
+              </div>
+              <div class="q-fact">
+                <span class="q-label">Competition</span>
+                <span class="q-val">IAAC Gold Honour (Top 6% Globally)</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 02 / RESEARCH DOSSIER -->
+    <section class="block" id="research">
+      <div class="wrap">
+        <div class="sec-header rv">
+          <div class="sec-meta">
+            <span class="sec-num">02</span>
+            <span class="sec-label">Research &amp; Fieldwork</span>
+          </div>
+          <h2 class="sec-headline">Where I've <em>worked.</em></h2>
+        </div>
+
+        <div class="dossier-grid">
+          <!-- NISER -->
+          <article class="dossier-card rv">
+            <div class="dossier-top">
+              <div class="dossier-time">
+                <span class="now-badge"><span class="pulse"></span> Current</span>
+                July 2025 — Present
+              </div>
+              <span class="role-badge">Researcher</span>
+            </div>
+            <h3>Exoplanets &amp; Planetary Formation Group</h3>
+            <div class="dossier-inst">
+              <i class="fas fa-landmark"></i> National Institute of Science Education and Research (NISER), Bhubaneswar
+            </div>
+            <div class="dossier-inquiry">
+              <small>Core Inquiry</small>
+              Can stellar devolatilization patterns predict the mantle mineralogy of rocky super-Earths?
+            </div>
+            <ul>
+              <li>Planet formation and accretion dynamics in protoplanetary disk.</li>
+              <li>Modeling planetary and exoplanetary interiors and mantle profiles using stellar-abundance-informed devolatilization and thermodynamic equilibrium modeling.</li>
+              <li>Developed multi-variable and machine-learning models for exoplanetary properties.</li>
+            </ul>
+            <div class="dossier-tags">
+              <span class="dossier-tag">Protoplanetary Disks</span>
+              <span class="dossier-tag">Mantle Mineralogy</span>
+              <span class="dossier-tag">Devolatilization</span>
+              <span class="dossier-tag">Machine Learning</span>
+            </div>
+          </article>
+
+          <!-- PRL Mt. Abu -->
+          <article class="dossier-card rv">
+            <div class="dossier-top">
+              <div class="dossier-time">
+                May 2025 — Nov 2025
+              </div>
+              <span class="role-badge">Researcher</span>
+            </div>
+            <h3>Astronomy &amp; Astrophysics Division</h3>
+            <div class="dossier-inst">
+              <i class="fas fa-mountain"></i> Physical Research Laboratory (PRL), Mt. Abu Observatory
+            </div>
+            <div class="dossier-inquiry">
+              <small>Core Inquiry</small>
+              What do rapid optical flux variations reveal about relativistic blazar jet dynamics?
+            </div>
+            <ul>
+              <li>Multiwavelength study of blazar variability using observational optical data from the 2.5 m telescope at the site.</li>
+              <li>Developed an automated pipeline for astronomical image processing and photometry.</li>
+            </ul>
+            <div class="dossier-tags">
+              <span class="dossier-tag">2.5m Optical Facility</span>
+              <span class="dossier-tag">Blazar Variability</span>
+              <span class="dossier-tag">Aperture Photometry</span>
+              <span class="dossier-tag">Pipeline Automation</span>
+            </div>
+          </article>
+
+          <!-- TIFR Mumbai -->
+          <article class="dossier-card rv">
+            <div class="dossier-top">
+              <div class="dossier-time">
+                May 2024 — Aug 2024
+              </div>
+              <span class="role-badge">Researcher</span>
+            </div>
+            <h3>Department of Astronomy &amp; Astrophysics</h3>
+            <div class="dossier-inst">
+              <i class="fas fa-atom"></i> Tata Institute of Fundamental Research (TIFR), Mumbai
+            </div>
+            <div class="dossier-inquiry">
+              <small>Core Inquiry</small>
+              How do dark matter halos scale with supermassive black holes in large-scale structure evolution?
+            </div>
+            <ul>
+              <li>Statistical analysis of SDSS-IV eBOSS data: galaxy clustering, two-point correlation functions (2pcf) in large-scale structure evolution.</li>
+              <li>Modeled dark matter halo mass functions and the relationship between supermassive black holes (SMBHs) and their host dark matter halos.</li>
+            </ul>
+            <div class="dossier-tags">
+              <span class="dossier-tag">SDSS-IV eBOSS</span>
+              <span class="dossier-tag">2-Point Correlation</span>
+              <span class="dossier-tag">Halo Mass Functions</span>
+              <span class="dossier-tag">Cosmology</span>
+            </div>
+          </article>
+
+          <!-- IISc Bengaluru -->
+          <article class="dossier-card rv">
+            <div class="dossier-top">
+              <div class="dossier-time">
+                June 2024 — July 2024
+              </div>
+              <span class="role-badge">Researcher</span>
+            </div>
+            <h3>Centre for High Energy Physics (C.H.E.P.)</h3>
+            <div class="dossier-inst">
+              <i class="fas fa-circle-nodes"></i> Indian Institute of Science (IISc), Bengaluru
+            </div>
+            <div class="dossier-inquiry">
+              <small>Core Inquiry</small>
+              What is the local energy distribution of high-energy muons in CERN datasets?
+            </div>
+            <ul>
+              <li>D-muon spectrum using ROOT: Analyzing local energy maximums as a function of number densities of high-energy muons and other subatomic particles.</li>
+            </ul>
+            <div class="dossier-tags">
+              <span class="dossier-tag">CERN ROOT</span>
+              <span class="dossier-tag">C++</span>
+              <span class="dossier-tag">Muon Spectrometry</span>
+              <span class="dossier-tag">Particle Physics</span>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- 03 / WRITING & SELECTED PAPER (Understated: Single Paper Link Only) -->
+    <section class="block" id="publications">
+      <div class="wrap">
+        <div class="sec-header rv">
+          <div class="sec-meta">
+            <span class="sec-num">03</span>
+            <span class="sec-label">Selected Paper &amp; Writing</span>
+          </div>
+          <h2 class="sec-headline">Academic <em>writing.</em></h2>
+        </div>
+
+        <!-- The Single Refereed Paper Card (The ONLY place where the link is placed) -->
+        <div class="single-paper-card rv">
+          <div class="paper-badge">Refereed Article · In Press</div>
+          <h3 class="paper-title">
+            Stellar Abundances as Probes of Rocky Exoplanet Interiors: The Mantle Composition and Mineralogy of GJ 486b
+          </h3>
+          <div class="paper-authors">
+            <b>Asmit Gupta*</b>, Harshit Krishna*, Sneha Bhowmik, Chandan K. Sahu, Sudipta Mridha, Liton Majumdar
+            <span class="author-note">(*joint first authors)</span>
+          </div>
+          <div class="paper-venue">
+            <em>The Astrophysical Journal (ApJ)</em> · Accepted, 2026
+          </div>
+          <p class="paper-summary">
+            Forward-modeling the interior structure, mantle mineralogy, and core-mass fraction of the nearby transiting super-Earth GJ 486b by devolatilizing high-resolution host star abundances and calculating high-pressure silicate phase equilibria.
+          </p>
+          <div class="paper-link-wrap">
+            <a href="https://doi.org/10.3847/1538-4357/ae9ba8" target="_blank" rel="noopener" class="paper-doi-btn">
+              View on DOI (10.3847/1538-4357/ae9ba8) <i class="fas fa-arrow-up-right-from-square"></i>
+            </a>
+          </div>
+        </div>
+
+        <!-- Working Manuscripts (Pure academic citation, no external link) -->
+        <div class="talks-subhead rv">Manuscripts in Review &amp; Preparation</div>
+        <div class="talks-grid rv" style="margin-bottom: 36px;">
+          <div class="talk-card">
+            <div class="talk-year">Submitted · ApJ</div>
+            <div class="talk-title">The Chemical Imprint of Accretion on Rocky-Planet Interiors</div>
+            <div class="talk-venue"><b>A. Gupta</b>, L. Majumdar, C. K. Sahu, S. Mridha, S. Bhowmik · Explaining the Earth–Mars Dichotomy and Its Implications for Rocky Exoplanets</div>
+          </div>
+          <div class="talk-card">
+            <div class="talk-year">Under Preparation</div>
+            <div class="talk-title">A Self-Consistent Machine-Learning Framework for Inferring Mantle Composition</div>
+            <div class="talk-venue"><b>A. Gupta</b>, L. Majumdar · Inferring Mantle Composition and Mineralogy of Rocky Exoplanets</div>
+          </div>
+          <div class="talk-card">
+            <div class="talk-year">Submitted · ApJ</div>
+            <div class="talk-title">Impacts of Interior-Outgassing on Secondary Atmosphere Formation</div>
+            <div class="talk-venue">S. Mridha, L. Majumdar, C. K. Sahu, <b>A. Gupta</b>, S. Bhowmik · Incorporated with Interior Evolution</div>
+          </div>
+        </div>
+
+        <!-- Presentations & Colloquia -->
+        <div class="talks-subhead rv">Selected Talks &amp; Symposia</div>
+        <div class="talks-grid rv">
+          <div class="talk-card">
+            <div class="talk-year">2026 · Earth Club</div>
+            <div class="talk-title">Planet formation in a proto-planetary disk &amp; observable signatures of star-planet interactions</div>
+            <div class="talk-venue">Invited Talk on behalf of the Earth Club, IISER Kolkata</div>
+          </div>
+          <div class="talk-card">
+            <div class="talk-year">March 2026 · ICTS</div>
+            <div class="talk-title">From Stellar Chemistry to Planetary Interiors: A Machine-Learning Framework for Rocky Exoplanets</div>
+            <div class="talk-venue">Poster Presentation · Exploring Exoplanets, ICTS Bengaluru</div>
+          </div>
+          <div class="talk-card">
+            <div class="talk-year">June 2026 · MPIA</div>
+            <div class="talk-title">PLUTO / OpenGadget3 Symposium 2026</div>
+            <div class="talk-venue">Max Planck Institute for Astronomy (MPIA), Heidelberg</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 04 / CODE & PIPELINES -->
+    <section class="block" id="tools">
+      <div class="wrap">
+        <div class="sec-header rv">
+          <div class="sec-meta">
+            <span class="sec-num">04</span>
+            <span class="sec-label">Code &amp; Pipelines</span>
+          </div>
+          <h2 class="sec-headline">Scientific <em>software &amp; tools.</em></h2>
+        </div>
+
+        <div class="pipelines-grid">
+          <!-- Tool 1: Project ALFEVEN -->
+          <div class="pipeline-card rv">
+            <div class="pipeline-kind">Python · Machine Learning · Solar Physics</div>
+            <h3>Project ALFEVEN</h3>
+            <p>
+              Machine learning-based solar wind speed predictor using multi-spacecraft plasma telemetry to forecast interplanetary coronal mass ejections and geomagnetic shock arrival windows.
+            </p>
+            <div class="chips">
+              <span class="chip">Python</span>
+              <span class="chip">Scikit-Learn</span>
+              <span class="chip">Solar Wind</span>
+              <span class="chip">Time Series</span>
+            </div>
+            <a class="pipeline-link" href="https://github.com/Asmitgupta30" target="_blank" rel="noopener">
+              View on GitHub <i class="fas fa-arrow-up-right-from-square"></i>
+            </a>
+          </div>
+
+          <!-- Tool 2: ExoHab & ExoTide -->
+          <div class="pipeline-card rv">
+            <div class="pipeline-kind">Astrophysics Suite · Demographics</div>
+            <h3>ExoHab &amp; ExoTide v1.1</h3>
+            <p>
+              Computational suite for exoplanetary demographics, habitable-zone boundary calculations, tidal circularization timescales, and synthetic transit light-curve generation.
+            </p>
+            <div class="chips">
+              <span class="chip">Astropy</span>
+              <span class="chip">Transit Fitting</span>
+              <span class="chip">Tidal Evolution</span>
+              <span class="chip">SciPy</span>
+            </div>
+            <a class="pipeline-link" href="https://github.com/Asmitgupta30" target="_blank" rel="noopener">
+              View on GitHub <i class="fas fa-arrow-up-right-from-square"></i>
+            </a>
+          </div>
+
+          <!-- Tool 3: FITS Pipeline -->
+          <div class="pipeline-card rv">
+            <div class="pipeline-kind">Observational Astronomy · Photometry</div>
+            <h3>Auto-Photometry FITS Pipeline</h3>
+            <p>
+              Automated pipeline for astronomical CCD/FITS image reduction, bias/flat calibration, cosmic-ray removal, and high-precision aperture photometry for faint targets.
+            </p>
+            <div class="chips">
+              <span class="chip">Photutils</span>
+              <span class="chip">AstroImageJ</span>
+              <span class="chip">FITS Calibration</span>
+              <span class="chip">Aperture Photometry</span>
+            </div>
+            <a class="pipeline-link" href="https://github.com/Asmitgupta30" target="_blank" rel="noopener">
+              View on GitHub <i class="fas fa-arrow-up-right-from-square"></i>
+            </a>
+          </div>
+
+          <!-- Tool 4: Geothermobarometry Suite -->
+          <div class="pipeline-card rv">
+            <div class="pipeline-kind">Geoscience · Thermodynamic Visualization</div>
+            <h3>Petrology Visualizer Suite</h3>
+            <p>
+              Metamorphic and igneous petrology visualizers for geothermobarometry and mineral phase stability, adopted for departmental coursework use at IISER Kolkata.
+            </p>
+            <div class="chips">
+              <span class="chip">Phase Equilibria</span>
+              <span class="chip">Geothermobarometry</span>
+              <span class="chip">Mineralogy</span>
+              <span class="chip">Coursework Suite</span>
+            </div>
+            <a class="pipeline-link" href="https://github.com/Asmitgupta30" target="_blank" rel="noopener">
+              View Repository <i class="fas fa-arrow-up-right-from-square"></i>
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 05 / RHYTHM, FIELDWORK & PHOTOGRAPHY -->
+    <section class="block" id="life">
+      <div class="wrap">
+        <div class="sec-header rv">
+          <div class="sec-meta">
+            <span class="sec-num">05</span>
+            <span class="sec-label">Fieldwork &amp; Life</span>
+          </div>
+          <h2 class="sec-headline">Rhythm, court, and <em>un-seeked pleasures.</em></h2>
+        </div>
+
+        <div class="rhythm-layout">
+          <div class="rhythm-narrative rv">
+            <h3>Fieldwork on Rhythm &amp; Off-Duty Pursuits</h3>
+            <p>
+              As mentioned in the intro, dancing in front of a mirror is my one sanctuary where no referee or reviewer can critique my footwork. Outside the mirror, you'll catch me on the basketball court as Power Forward and Shooting Guard for the IISER Kolkata team, in the dojo instructing self-defense in Taekwondo, or playing bass in the college rock band.
+            </p>
+            <p>
+              I've also competed in district-level cricket and national-level dance competitions. And on festival nights, you'll find me managing charcoal at 400°C on festival tandoor duty — which turns out to be excellent practical experience with high-temperature thermodynamics.
+            </p>
+          </div>
+
+          <div class="athletics-grid rv">
+            <div class="ath-card">
+              <b>PF / SG</b>
+              <span>Basketball Team (2022–present)</span>
+            </div>
+            <div class="ath-card">
+              <b>Instructor</b>
+              <span>Self-Defense Club Taekwondo</span>
+            </div>
+            <div class="ath-card">
+              <b>Bassist</b>
+              <span>College Rock Band</span>
+            </div>
+            <div class="ath-card">
+              <b>400°C</b>
+              <span>Fest Tandoor Heat Tolerance</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Photography Strip (Un-Seeked Pleasures) -->
+        <div class="gallery-headline rv">Un-Seeked Pleasures · Photography</div>
+        <div class="photo-strip rv">
+          <div class="photo-item" title="Click to enlarge">
+            <img src="assets/images/gallery/twilight-tranquility.jpg" alt="Twilight Tranquility" loading="lazy">
+            <div class="photo-item-cap"><span>Twilight Tranquility</span></div>
+          </div>
+          <div class="photo-item" title="Click to enlarge">
+            <img src="assets/images/gallery/moonlit-serenity.jpg" alt="Moonlit Serenity" loading="lazy">
+            <div class="photo-item-cap"><span>Moonlit Serenity</span></div>
+          </div>
+          <div class="photo-item" title="Click to enlarge">
+            <img src="assets/images/gallery/sunset-reverie.jpg" alt="Sunset Reverie" loading="lazy">
+            <div class="photo-item-cap"><span>Sunset Reverie</span></div>
+          </div>
+          <div class="photo-item" title="Click to enlarge">
+            <img src="assets/images/gallery/enigmatic-elements.jpg" alt="Enigmatic Elements" loading="lazy">
+            <div class="photo-item-cap"><span>Enigmatic Elements</span></div>
+          </div>
+          <div class="photo-item" title="Click to enlarge">
+            <img src="assets/images/gallery/urban-perspectives.jpg" alt="Urban Perspectives" loading="lazy">
+            <div class="photo-item-cap"><span>Urban Perspectives</span></div>
+          </div>
+          <div class="photo-item" title="Click to enlarge">
+            <img src="assets/images/research/quartzarenite-sample.jpg" alt="Quartzarenite Thin Section Specimen" loading="lazy">
+            <div class="photo-item-cap"><span>Quartzarenite Thin Section (IISER-K)</span></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 06 / CONTACT (Understated & Direct, ZERO paper link here) -->
+    <section class="contact-editorial" id="contact">
+      <div class="wrap">
+        <div class="sec-meta rv" style="margin-bottom:24px">
+          <span class="sec-num">06</span>
+          <span class="sec-label">Inquiries &amp; Conversation</span>
+        </div>
+
+        <div class="contact-big rv">
+          Let's talk rocks, stars,<br>
+          <em>or rhythm fieldwork</em> — <a href="mailto:asmitgupta30@gmail.com">say hello.</a>
+        </div>
+
+        <!-- Strictly Personal & Scholarly Channels (NO duplicate paper link here) -->
+        <div class="socials rv">
+          <a href="mailto:asmitgupta30@gmail.com">
+            <i class="fas fa-envelope"></i> asmitgupta30@gmail.com
+          </a>
+          <a href="https://github.com/Asmitgupta30" target="_blank" rel="noopener">
+            <i class="fab fa-github"></i> GitHub
+          </a>
+          <a href="https://linkedin.com/in/asmit-gupta-45851a271" target="_blank" rel="noopener">
+            <i class="fab fa-linkedin"></i> LinkedIn
+          </a>
+          <a href="cv.pdf" target="_blank">
+            <i class="fas fa-file-pdf"></i> Download CV (PDF)
+          </a>
+          <a href="cv.html" target="_blank">
+            <i class="fas fa-file-lines"></i> Interactive CV
+          </a>
+        </div>
+
+        <footer>
+          <span>© <span id="yr">2026</span> Asmit Gupta · Final Year BS–MS IISER Kolkata</span>
+          <span>Fieldwork: Rhythm (Unreviewed) · Thesis at NISER</span>
+          <span>Hosted on GitHub Pages</span>
+        </footer>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ========================================================================
+       Photography Lightbox Modal
+       ======================================================================== -->
+  <div id="photo-modal" role="dialog" aria-modal="true" aria-label="Expanded Image Viewer">
+    <div class="modal-box">
+      <button class="modal-close" id="modal-close" aria-label="Close modal">&times;</button>
+      <img id="modal-img" src="" alt="">
+      <div class="modal-cap" id="modal-cap"></div>
+    </div>
+  </div>
+
+  <!-- JavaScript Engine -->
+  <script src="assets/js/main.js"></script>
+</body>
+</html>
