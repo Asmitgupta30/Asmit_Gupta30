@@ -548,7 +548,7 @@
   }
 
   /* ==========================================================================
-     5. Photography Lightbox Modal (Section 06 - Un-Seeked Pleasures)
+     5. Photography Lightbox Modal (Observational Perspectives)
      ========================================================================== */
   const modal = document.getElementById('photo-modal');
   const modalImg = document.getElementById('modal-img');
