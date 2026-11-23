@@ -123,6 +123,7 @@ header.nav.scrolled {
   display: flex;
   align-items: flex-end;
   overflow: hidden;
+  padding-top: 100px;
   padding-bottom: 8vh;
 }
 #field {
@@ -163,10 +164,12 @@ header.nav.scrolled {
   position: absolute;
   z-index: 3;
   right: 28px;
-  bottom: calc(8vh + 6px);
+  bottom: 24px;
   font: 400 .62rem var(--mono);
   color: var(--muted);
   text-align: center;
+  pointer-events: none;
+  opacity: 0.8;
 }
 .scalebar i {
   display: block;
@@ -235,17 +238,17 @@ header.nav.scrolled {
 }
 
 .hero-sub {
-  display: grid;
-  grid-template-columns: minmax(0, 1.2fr) minmax(0, 1fr);
-  gap: 40px;
-  align-items: end;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 20px;
   border-top: 1px solid var(--line);
   padding-top: 24px;
+  max-width: 58ch;
 }
 .hero-sub p {
   font-size: clamp(1rem, 1.45vw, 1.18rem);
   color: #cfd2dc;
-  max-width: 52ch;
   line-height: 1.6;
 }
 .hero-sub p .g { color: var(--sage); }
@@ -253,9 +256,10 @@ header.nav.scrolled {
 
 .hero-actions {
   display: flex;
-  gap: 10px;
-  justify-content: flex-end;
-  flex-wrap: wrap;
+  gap: 12px;
+  justify-content: flex-start;
+  align-items: center;
+  margin-top: 4px;
 }
 .btn {
   display: inline-flex;
@@ -278,7 +282,7 @@ header.nav.scrolled {
    ========================================================================== */
 section.block {
   padding: 120px 0 0;
-  scroll-margin-top: 40px;
+  scroll-margin-top: 80px;
   position: relative;
   z-index: 3;
 }
@@ -975,7 +979,8 @@ footer {
   .profile-editorial, .dossier-grid, .pipelines-grid, .rhythm-layout, .talks-grid {
     grid-template-columns: 1fr;
   }
-  .hero-sub { grid-template-columns: 1fr; gap: 24px; }
+  .scalebar { display: none; }
+  .hero-sub { gap: 18px; }
   .hero-actions { justify-content: flex-start; }
   .nav-links { display: none; }
   .nav-links.open {

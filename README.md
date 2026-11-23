@@ -32,7 +32,7 @@ Designed with a warm basalt, chondrite ochre, and deep space obsidian aesthetic,
   - *Auto-Photometry FITS Pipeline* (Aperture photometry & CCD calibration).
   - *Petrology Visualizer Suite* (Adopted for IISER Kolkata departmental coursework).
 - **Fieldwork on Rhythm, Athletics & Photography**:
-  - Taekwondo instructor (Self-Defense Club), basketball team (Power Forward & Shooting Guard, 2022–present), student mentorship at Sciastra & Ek-Pehel, district-level cricket, 400°C fest tandoor duty.
+  - Taekwondo instructor (Self-Defense Club), basketball team (Power Forward & Shooting Guard, 2022–present), student mentorship and teaching, district-level cricket, 400°C fest tandoor duty.
   - *Observational Perspectives* photography gallery with full-screen lightbox modal.
 - **Curriculum Vitae (PDF & Interactive Web)**:
   - Official PDF downloadable directly via [cv.pdf](cv.pdf).
