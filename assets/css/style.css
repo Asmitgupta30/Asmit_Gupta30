@@ -990,8 +990,8 @@ footer {
     padding: 8px 28px 18px;
   }
   .nav-links.open a { display: block; padding: 12px 0; font-size: .85rem; }
-  .menu-btn { display: block; }
-  .nav-cv { display: none; }
+  .menu-btn { display: block; order: 3; }
+  .nav-cv { display: inline-flex; font-size: .68rem; padding: 6px 12px; order: 2; margin-left: auto; margin-right: 10px; }
 }
 
 @media(max-width: 640px) {
