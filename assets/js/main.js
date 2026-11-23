@@ -101,7 +101,8 @@
       }
     }
 
-    function resize() {
+    let lastWidth = 0;
+    function resize(forceRebuild) {
       dpr = Math.min(window.devicePixelRatio || 1, 2);
       W = canvas.clientWidth;
       H = canvas.clientHeight;
@@ -124,7 +125,10 @@
         companion.a = planet.a * 1.68;
       }
 
-      createDiskParticles();
+      if (forceRebuild || Math.abs(W - lastWidth) > 20 || particles.length === 0) {
+        lastWidth = W;
+        createDiskParticles();
+      }
     }
 
     // Pointer Parallax & Subtle Disk Interaction
@@ -374,15 +378,32 @@
     let t0 = performance.now();
     let lastTime = t0;
     let isVisible = true;
+    let animId = null;
 
-    // Pause when scrolled past viewport
-    new IntersectionObserver((entries) => {
-      isVisible = entries[0].isIntersecting;
-    }).observe(canvas);
+    // Pause when scrolled past viewport to save CPU / battery
+    if ('IntersectionObserver' in window) {
+      const canvasObserver = new IntersectionObserver((entries) => {
+        const visible = entries[0].isIntersecting;
+        if (visible && !isVisible) {
+          isVisible = true;
+          lastTime = performance.now();
+          if (!prefersReducedMotion && !animId) {
+            animId = requestAnimationFrame(render);
+          }
+        } else if (!visible && isVisible) {
+          isVisible = false;
+          if (animId) {
+            cancelAnimationFrame(animId);
+            animId = null;
+          }
+        }
+      }, { threshold: 0.05 });
+      canvasObserver.observe(canvas);
+    }
 
     function render(now) {
       if (!isVisible) {
-        requestAnimationFrame(render);
+        animId = null;
         return;
       }
 
@@ -451,19 +472,25 @@
       }
       ctx.restore();
 
-      if (!prefersReducedMotion) {
-        requestAnimationFrame(render);
+      if (!prefersReducedMotion && isVisible) {
+        animId = requestAnimationFrame(render);
+      } else {
+        animId = null;
       }
     }
 
-    resize();
+    resize(true);
     let resizeTimer;
     window.addEventListener('resize', () => {
       clearTimeout(resizeTimer);
-      resizeTimer = setTimeout(resize, 140);
+      resizeTimer = setTimeout(() => resize(false), 140);
     });
 
-    requestAnimationFrame(render);
+    if (!prefersReducedMotion) {
+      animId = requestAnimationFrame(render);
+    } else {
+      render(performance.now());
+    }
   }
 
   /* ==========================================================================
@@ -481,18 +508,33 @@
   const menuBtn = document.getElementById('menuBtn');
   const navLinks = document.getElementById('navLinks');
   if (menuBtn && navLinks) {
-    menuBtn.addEventListener('click', () => {
+    const closeMenu = () => {
+      navLinks.classList.remove('open');
+      menuBtn.setAttribute('aria-expanded', 'false');
+      menuBtn.innerHTML = '<i class="fas fa-bars"></i>';
+    };
+
+    menuBtn.addEventListener('click', (e) => {
+      e.stopPropagation();
       const open = navLinks.classList.toggle('open');
       menuBtn.setAttribute('aria-expanded', open ? 'true' : 'false');
       menuBtn.innerHTML = open ? '<i class="fas fa-times"></i>' : '<i class="fas fa-bars"></i>';
     });
 
     navLinks.querySelectorAll('a').forEach((link) => {
-      link.addEventListener('click', () => {
-        navLinks.classList.remove('open');
-        menuBtn.setAttribute('aria-expanded', 'false');
-        menuBtn.innerHTML = '<i class="fas fa-bars"></i>';
-      });
+      link.addEventListener('click', closeMenu);
+    });
+
+    document.addEventListener('click', (e) => {
+      if (navLinks.classList.contains('open') && nav && !nav.contains(e.target)) {
+        closeMenu();
+      }
+    });
+
+    window.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape' && navLinks.classList.contains('open')) {
+        closeMenu();
+      }
     });
   }
 
@@ -537,13 +579,21 @@
   let quoteIndex = 0;
 
   if (statusPill) {
-    statusPill.addEventListener('click', () => {
+    const cycleStatus = () => {
       quoteIndex = (quoteIndex + 1) % wittyQuotes.length;
       statusPill.style.transform = 'scale(0.97)';
       setTimeout(() => {
-        statusPill.innerHTML = `<span class="pulse"></span> ${wittyQuotes[quoteIndex]}`;
+        statusPill.innerHTML = `<span class="pulse"></span> <span class="status-text">${wittyQuotes[quoteIndex]}</span>`;
         statusPill.style.transform = '';
       }, 150);
+    };
+
+    statusPill.addEventListener('click', cycleStatus);
+    statusPill.addEventListener('keydown', (e) => {
+      if (e.key === 'Enter' || e.key === ' ') {
+        e.preventDefault();
+        cycleStatus();
+      }
     });
   }
 
@@ -554,25 +604,41 @@
   const modalImg = document.getElementById('modal-img');
   const modalCap = document.getElementById('modal-cap');
   const modalClose = document.getElementById('modal-close');
+  let lastActivePhotoItem = null;
 
   if (modal && modalImg && modalCap) {
+    const openModalWithItem = (item) => {
+      const img = item.querySelector('img');
+      const cap = item.querySelector('.photo-item-cap span');
+      if (img) {
+        lastActivePhotoItem = item;
+        modalImg.src = img.src;
+        modalImg.alt = img.alt || 'Photograph by Asmit Gupta';
+        modalCap.textContent = cap ? cap.textContent : img.alt;
+        modal.classList.add('open');
+        modal.setAttribute('aria-hidden', 'false');
+        document.body.style.overflow = 'hidden';
+        if (modalClose) modalClose.focus();
+      }
+    };
+
     document.querySelectorAll('.photo-item').forEach((item) => {
-      item.addEventListener('click', () => {
-        const img = item.querySelector('img');
-        const cap = item.querySelector('.photo-item-cap span');
-        if (img) {
-          modalImg.src = img.src;
-          modalImg.alt = img.alt || 'Photograph by Asmit Gupta';
-          modalCap.textContent = cap ? cap.textContent : img.alt;
-          modal.classList.add('open');
-          document.body.style.overflow = 'hidden';
+      item.addEventListener('click', () => openModalWithItem(item));
+      item.addEventListener('keydown', (e) => {
+        if (e.key === 'Enter' || e.key === ' ') {
+          e.preventDefault();
+          openModalWithItem(item);
         }
       });
     });
 
     const closeModal = () => {
       modal.classList.remove('open');
+      modal.setAttribute('aria-hidden', 'true');
       document.body.style.overflow = '';
+      if (lastActivePhotoItem) {
+        lastActivePhotoItem.focus();
+      }
     };
 
     if (modalClose) modalClose.addEventListener('click', closeModal);
@@ -590,29 +656,40 @@
   const sections = document.querySelectorAll('section[id], header[id]');
   const navLinkList = document.querySelectorAll('.nav-links a[href^="#"]');
 
+  let spyRaf = null;
+  const updateScrollSpy = () => {
+    let currentId = '';
+    const scrollPos = window.scrollY + 140;
+
+    sections.forEach((section) => {
+      const top = section.getBoundingClientRect().top + window.scrollY;
+      const height = section.offsetHeight;
+      if (scrollPos >= top && scrollPos < top + height) {
+        currentId = section.getAttribute('id');
+      }
+    });
+
+    navLinkList.forEach((link) => {
+      link.classList.remove('active');
+      if (link.getAttribute('href') === `#${currentId}`) {
+        link.classList.add('active');
+      }
+    });
+  };
+
   window.addEventListener(
     'scroll',
     () => {
-      let currentId = '';
-      const scrollPos = window.scrollY + 200;
-
-      sections.forEach((section) => {
-        const top = section.offsetTop;
-        const height = section.offsetHeight;
-        if (scrollPos >= top && scrollPos < top + height) {
-          currentId = section.getAttribute('id');
-        }
-      });
-
-      navLinkList.forEach((link) => {
-        link.classList.remove('active');
-        if (link.getAttribute('href') === `#${currentId}`) {
-          link.classList.add('active');
-        }
-      });
+      if (!spyRaf) {
+        spyRaf = requestAnimationFrame(() => {
+          updateScrollSpy();
+          spyRaf = null;
+        });
+      }
     },
     { passive: true }
   );
+  updateScrollSpy();
 
   /* ==========================================================================
      7. Dynamic Copyright Year

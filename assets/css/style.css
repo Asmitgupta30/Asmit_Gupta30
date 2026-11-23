@@ -200,9 +200,12 @@ header.nav.scrolled {
   cursor: pointer;
   transition: .2s;
 }
-.status:hover {
+.status:hover,
+.status:focus-visible {
   border-color: var(--amber);
   color: var(--text);
+  outline: 2px solid var(--amber);
+  outline-offset: 2px;
 }
 .pulse {
   width: 7px;
@@ -847,9 +850,14 @@ section.block {
   filter: grayscale(.65) brightness(.9);
   transition: filter .4s, transform .5s;
 }
-.photo-item:hover img {
+.photo-item:hover img,
+.photo-item:focus-visible img {
   filter: grayscale(0) brightness(1);
   transform: scale(1.04);
+}
+.photo-item:focus-visible {
+  outline: 2px solid var(--amber);
+  outline-offset: 2px;
 }
 .photo-item-cap {
   position: absolute;
@@ -861,7 +869,8 @@ section.block {
   opacity: 0;
   transition: .3s;
 }
-.photo-item:hover .photo-item-cap { opacity: 1; }
+.photo-item:hover .photo-item-cap,
+.photo-item:focus-visible .photo-item-cap { opacity: 1; }
 
 /* ---------- 06 / Contact (Understated, Zero Redundancy) ---------- */
 .contact-editorial {
